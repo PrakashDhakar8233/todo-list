@@ -12,16 +12,14 @@ id: number;
   constructor(private todoService: TodoService) { }
 
   ngOnInit() {
-   
     this.todoList = this.todoService.getTodos()
-    console.log(this.todoList)
   }
   onDelete(id){
     this.todoService.deleteTodo(id)
   }
    onComplete(id){
-    this.todoList[id] = this.todoService.updateDone(id)
-    console.log(this.todoList)
+    this.todoList[id] = this.todoService.updateDone(id);
+    console.log(this.todoList[id]);
   }
   onEdit(id){
     

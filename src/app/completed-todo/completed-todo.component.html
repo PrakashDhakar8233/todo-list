@@ -1,8 +1,7 @@
-<hr>
-    <div class="row">
+<div class="row">
       <div >
         <h3>completed todos</h3>
-         <ul>
-           <li *ngFor="let list of todoList">{{list.title}}</li>
+         <ul *ngFor="let list of todoList">
+           <li *ngIf="list.done">{{list.title}}</li>
          </ul>
       </div>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
 import { TodoService } from '../todo.service';
 
 @Component({
@@ -7,21 +7,15 @@ import { TodoService } from '../todo.service';
   styleUrls: ['./completed-todo.component.css']
 })
 export class CompletedTodoComponent implements OnInit {
-todoList: any[]
-  constructor(private todoService: TodoService) { }
+  todoList: any[];
+  constructor(private todoService: TodoService, private ngZone: NgZone) { }
 
   ngOnInit() {
-    this.todoList = this.todoService.getTodos()
-    var todoFilteredlist = [];
-    console.log(this.todoList)
-    this.todoList.forEach(e=>{
-      console.log("12313"+e)
-      if(e.done){
-        todoFilteredlist.push(e);
-      }
-    })
-    console.log(todoFilteredlist)
-    this.todoList =todoFilteredlist
+      this.todoList = this.todoService.getTodos();
+      // console.log(this.todoList);
+      // var todoFilteredlist = this.todoList.filter(obj => obj.done);
+      // console.log(todoFilteredlist)
+      // this.todoList =todoFilteredlist;
   }
 
 }
