@@ -15,9 +15,10 @@ id: number;
   }
   onAddTodo(itemTitle){
      this.todoService.addTodos(itemTitle.value, false);
-     itemTitle.value= null;
+    //  itemTitle.value= null;
     //  console.log(itemTitle.value)
   }
+ 
  
 
 }

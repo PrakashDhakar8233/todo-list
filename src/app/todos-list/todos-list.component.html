@@ -1,10 +1,14 @@
 <div class="row" *ngFor="let list of todoList; index as i" [id]= i>
   <div class="col-lg-6">
- <span> {{list.title}} </span>
+ <span *ngIf="!list.done"> {{list.title}} </span>
   </div> 
   <div class="col-lg-6">
-    <button class="btn btn-outline-danger btn-sm mr-1 " (click)="onDelete(i)">Delete</button>
-   <button class="btn btn-outline-success btn-sm mr-1" (click)="onComplete(i)">Done</button>
+    <button  class="btn btn-outline-danger btn-sm mr-1 " 
+    (click)="onDelete(i)" *ngIf="!list.done">Delete</button>
+   <button class="btn btn-outline-success btn-sm mr-1" 
+   (click)="onComplete(i)" *ngIf="!list.done">Done</button>
+   <button class="btn btn-outline-success btn-sm mr-1"
+   (click)="onEdit(i)" *ngIf="!list.done">EditTodo</button>
   </div>
 </div>
 

@@ -1,5 +1,6 @@
 import { Component, OnInit, NgZone } from '@angular/core';
 import { TodoService } from '../todo.service';
+import { Todo } from '../todo.model';
 
 @Component({
   selector: 'app-completed-todo',
@@ -7,15 +8,12 @@ import { TodoService } from '../todo.service';
   styleUrls: ['./completed-todo.component.css']
 })
 export class CompletedTodoComponent implements OnInit {
-  todoList: any[];
-  constructor(private todoService: TodoService, private ngZone: NgZone) { }
+  todoList: Todo[];
+  constructor(private todoService: TodoService) { }
 
   ngOnInit() {
       this.todoList = this.todoService.getTodos();
-      // console.log(this.todoList);
-      // var todoFilteredlist = this.todoList.filter(obj => obj.done);
-      // console.log(todoFilteredlist)
-      // this.todoList =todoFilteredlist;
+      
   }
 
 }
